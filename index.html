@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Hume Dickie - The "Trump Effect" - Data Visualization</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/creative.min.css" rel="stylesheet">
+
+    <!--Data Viz libraries-->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+    <!-- Temporary navbar container fix -->
+    <style>
+    .navbar-toggler {
+        z-index: 1;
+    }
+    
+    @media (max-width: 576px) {
+        nav > .container {
+            width: 100%;
+        }
+    }
+    </style>
+
+</head>
+
+<body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar fixed-top navbar-toggleable-md navbar-light" id="mainNav">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="container">
+            <a class="navbar-brand" href="#page-top">The "Trump Effect"</a>
+            <div class="collapse navbar-collapse" id="navbarExample">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#intro">Introduction</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#data">Data</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#viz">Visualization</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#analysis">Analysis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="masthead">
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1 id="homeHeading" style="font-size:600%;">The "Trump Effect"</h1>
+                <hr>
+                <p>A post-election survey about populism in the US and the EU-28</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-primary" id="intro">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <h2 class="section-heading text-white">Introduction</h2>
+                    <hr class="light">
+                    <p class="text-faded">The election of Donald Trump has taken the world by surprise and is fuelling populist movements across the Western Hemisphere. Dalia Research is a marketing consulting firm whose goal is to "change the way that attitudinal data is collected, analysed and presented" with an emphasis on quality and depth of data. <a href="https://daliaresearch.com/" style="color:white">Dalia Research</a> is responsible for this data and has published them under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" style="color:white;">CC BY-NC-SA 4.0 License.</a> Transformations to this data were made to suit the visualization techniques, and this visualization is published under the same license as the data.</p>
+
+                    <p class="text-faded">Understanding a citizenry's attitude toward outsiders is a tremendous challenge. Some questions this dashboard visualization was designed to help answer are:</p>
+
+                    <ul style="list-style:none;">
+                    <li class="text-faded" style = "font-size:16px;">What proportion of people trust the judgment of experts?
+                    </li>
+                    <li class="text-faded" style = "font-size:16px;">What is the relationship between trust in the judgment of experts and disposable income?
+                    </li>
+                    <li class="text-faded" style = "font-size:16px;">How is the income distribution different in the country as opposed to cities?
+                    </li>
+                    <li class="text-faded" style = "font-size:16px;">What does a voter's worldview tell us about who they are likely to vote for?
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-dark" id="data">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">About the Data</h2>
+                    <hr class="primary">
+                    <p>The survey conducted by Dalia Reasearch recorded respondent answers to many questions, but this vosualization has focused on four features:</p>
+
+                    <ul style="list-style:none;">
+                    <li>
+                        <p>"I'd rather trust my own judgment that the opinions of experts."</p>
+                        <ul>
+                        <li class="text-faded" style="text-align:center;display:inline;margin-right:25px;">Strongly Disagree                            
+                        </li>
+                        <li class="text-faded" style="text-align:center;display:inline;margin-right:25px;">Disagree                            
+                        </li>
+                        <li class="text-faded" style="text-align:center;display:inline;margin-right:25px;">Neither                            
+                        </li>
+                        <li class="text-faded" style="text-align:center;display:inline;margin-right:25px;">Agree                            
+                        </li>
+                        <li class="text-faded" style="text-align:center;display:inline;margin-right:25px;">Strongly Agree                            
+                        </li>
+                        </ul>
+                    </li>
+                    <br>
+ 
+                    <li>
+                        <p>What is your household's monthly income after taxes, in Pounds Sterling?</p>
+                        <ul>
+                        <li class="text-faded" style="text-align:center;display:inline;margin-right:25px;">Prefer not to say
+                        </li>
+                        <li class="text-faded" style="text-align:center;display:inline;margin-right:25px;">Under 200
+                        </li>
+                        <li class="text-faded" style="text-align:center;display:inline;margin-right:25px;">200 - 400
+                        </li>
+                        <li class="text-faded" style="text-align:center;display:inline;margin-right:25px;">400 - 800
+                        </li>
+                        <li class="text-faded" style="text-align:center;display:inline;margin-right:25px;">800 - 1600
+                        </li>
+                        <li class="text-faded" style="text-align:center;display:inline;margin-right:25px;">1600 - 2400
+                        </li>
+                        <li class="text-faded" style="text-align:center;display:inline;margin-right:25px;">2400 - 3200
+                        </li>
+                        <li class="text-faded" style="text-align:center;display:inline;">3200 - 4800
+                        </li>
+                        
+                        </ul>
+<br>
+                        <ul>
+
+                        <li class="text-faded" style="text-align:center;display:inline;margin-right:25px;">4800 - 6400
+                        </li>
+                        <li class="text-faded" style="text-align:center;display:inline;margin-right:25px;">6400 - 8000
+                        </li>
+                        <li class="text-faded" style="text-align:center;display:inline;margin-right:25px;">8000 - 9600
+                        </li>
+                        <li class="text-faded" style="text-align:center;display:inline;margin-right:25px;">9600 - 12000
+                        </li>
+                        <li class="text-faded" style="text-align:center;display:inline;">More than 12000
+                        </li>
+                        </ul>
+                    </li>
+                    <br>
+
+                    <li>
+                        <p>Whom did you vote for in the US general presidential election?</p>
+                        <ul>
+                            <li class="text-faded" style="text-align:center;display:inline;margin-right:25px;">Hillary Clinton
+                            </li>
+                            <li class="text-faded" style="text-align:center;display:inline;margin-right:25px;">Donald Trump
+                            </li>
+                            <li class="text-faded" style="text-align:center;display:inline;margin-right:25px;">Other Candidate
+                            </li>
+                            <li class="text-faded" style="text-align:center;display:inline;">Did Not Vote
+                            </li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>
+                        <p>Which of the following statements do you agree with the most?</p>
+                        <ul>
+                            <li class="text-faded" style="text-align:center;display:inline;">Our lives are threatened by terrorists, criminals, and immigrants and our priority should be to protect ourselves.
+                            </li>
+<br>
+                            <li class="text-faded" style="text-align:center;display:inline">It's a big, beautiful world, mostly full of good people, and we must find a way to embrace each other and not allow ourselves to become isolated.
+                            </li>
+                        </ul>
+                    </li>
+                    </ul>
+                    
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="viz">
+        <div class="container">
+            <div class="row"> 
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <h2 class="section-heading">Visualization</h2>
+                    <hr class="primary">
+                    <div class="container">
+                        <svg height = "500" width = "960" id = "dashboard" style="display:block;margin:auto;"></svg>
+                        <script src="dashboard.js"></script>
+                    </div>
+                    <br>
+                    <p>Hovering highlights the corresponding rows and columns on the heatmap as well as producing details on demand for each chart.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class ="bg-primary" id ="analysis">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <h2 class="section-heading text-white">Analysis</h2>
+                    <hr class="primary">
+                    <p class="text-faded">After interacting with the dashboard, several observations are possible. The bar charts reveal a preference for one's own judgment rather than an expert, and the stacked bars for Urban are somewhat dilated compared to Rural; while Rural has more of the poorest of the poor and the richest of the rich, Urban has proportionately more of it's population with between 2400£ - 9600£ of disposable income each month. The heatmap, on its face, doesn't show much- many people chose not to share how much extra money they had in addition to not showing a preference for their own judgment or that of experts', but focusing on each column reveals some structure. Several of the bars have extreme values at the top and bottom, but they each have a hot spot somewhere in the middle as well. Moving from left to right, that hot spot moves upward. The "Disagree" and "Agree" columns are very similar, but comparing their extreme partners shows hot spots at 3200 - 4800 for "Strongly Disagree" and "800 - 1600" for "Strongly Agree". It is possible that people who make more money are more likely to prefer their own opinions over the judgment of experts! Focusing on each row by mousing over the stacked bar segments is less enlightening- the values seem dominated by the overall distribution; while there may be a trend in the heatmap, it is still true that you are more likely to prefer your own opinion over an expert's regardless of how much money you make. The pie chart has a very interesting story to tell. People with a positive world view are more like to choose any option except the Republican candidate. Not only is true that those with negative world views choose an option other than the Republican candidate less often, but those with negative worldviews are greater in their majority for choosing their next leader.</p>
+
+                    <p class="text-faded">Clustering of two subgroups of features was attempted, based on demographic and voting issue features respectively. The charts below show results for different numbers of clusters. What we would see if clustering worked well is a low value for 2, with a relative maximum at some interger value greater than 2. High values are desirable because the y-axis "silhouette width" is a measure of how similar each centroid is to each observation in its cluster. We do see relative maxima at 8 clusters for demographic, and 10 clusters for voting issues, but because of the categorical nature of the features used for this clustering, these are likely artifacts of overfitting and are not useful. Results did not support the classification of respondents into subgroups.</p>
+
+                    <div id="sil" style="text-align:center;">
+                        <img src="img\Demog_Cluster.png"></img>
+                        <img src="img\Vote_Cluster.png"></img>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="call-to-action bg-dark">
+        <div class="container text-center">
+            <h2 style="font-size:1.1em;">“We have a choice. We have two options as human beings. We have a choice between conversation and war. That's it. Conversation and violence." - Sam Harris</h2>
+            <a class="btn btn-default btn-xl sr-button" href="https://www.wsj.com/">Choose Conversation</a>
+        </div>
+    </div>
+
+    <section id="contact" style="margin-bottom:100px;margin-top:100px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <h2 class="section-heading">Let's Get In Touch!</h2>
+                    <hr class="primary">
+                    <img src="img/selfie.jpg" style="display: inline-block;width: 200px;height: 200px;border-radius: 50%;border:5px solid grey;"></img>
+                    <br>
+                    <br>
+                    <h3>Hume Dickie</h3>
+                    <p>Hume is an aspiring scientist who has designed experiments, performed analyses, created visualizations and given presentations. His education has consisted of programming in R, Python, Java, Javascript, CSS, and HTML and studies in linear algebra, calculus, statistics, other maths, and data visualization. He is pursuing a Bachelor of Data Science at University of San Francisco, where he works as a Data Visualization Specialist and separately as a Public Speaking Coach. He is currently seeking intern-level opportunities and expects to graduate December 2017.</p>
+
+                    <div class="container">
+                        <ul class="list-inline social-buttons">
+                            <li style="float:left;left:40%;position:relative;"><a target="_blank" href="https://github.com/hdickie"><i class="fa fa-github" style="font-size:50px"></i></a>
+                            </li>
+                            <li style="float:left;left:45%;position:relative;"><a target="_blank" href="https://www.linkedin.com/in/humedickie/"><i class="fa fa-linkedin" style="font-size:50px"></i></a>
+                            </li>
+                            <li style="float:left;left:50%;position:relative;"><a target="_blank" href="https://hdickie.github.io/portfolio/"><i class="fa fa-home" style="font-size:50px"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/tether/tether.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/creative.min.js"></script>
+
+</body>
+
+</html>
